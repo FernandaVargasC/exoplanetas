@@ -1,0 +1,45 @@
+[  
+   {  
+      "posX":1995,
+      "posY":1.9,
+      "diam":5,
+      "nombre":"51 Peg b",
+      "masa":"20"
+   },
+   {  
+      "posX":2004,
+      "posY":0.18,
+      "diam":5,
+      "nombre":"55 Cnc e",
+      "masa":"40"
+   },
+  
+   {  
+      "posX":2000,
+      "posY":1.03,
+      "diam":5,
+      "nombre":"BD-10 3166 b",
+      "masa":"24"
+   },
+   {  
+      "posX":2011,
+      "posY":0.44,
+      "diam":5,
+      "nombre":"CoRoT-22 b",
+      "masa":"30"
+   },
+   {  
+      "posX":2009,
+      "posY":0.24,
+      "diam":5,
+      "nombre":"GJ 1214 b",
+      "masa":"5"
+   },
+   {  
+      "posX":2009,
+      "posY":0.42,
+      "diam":5,
+      "nombre":"HAT-P-11 b",
+      "masa":"68"
+   }
+]

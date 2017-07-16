@@ -1,0 +1,45 @@
+html, body {
+    font-size: 10px;
+
+}
+    
+#canvas1 {
+    display:block;  
+    background: yellow;
+}
+
+#canvas2 {
+    display:block;  
+    background: blue;
+}
+
+@font-face {
+    font-family: "Gotham Black";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("/fonts/gothamblack.woff") format("woff"), url("/fonts/gothamblackregular.ttf") format("truetype");
+} 
+
+.ejes path{
+    fill: none;
+    stroke: #00545C;
+    shape-rendering: crispEdges;
+    
+}
+.ejes line {
+    fill: none;
+    stroke: #00545C;
+    shape-rendering: crispEdges;
+    transform: scaleX(-1);
+}
+.ejes text {
+    font-family: sans-serif;
+    font-size: 10px;
+    stroke:#00545C;
+    stroke-width: 0.5px;
+}
+.container {  
+    background: #000814;
+    width: 100% ;
+    float: center;
+}
