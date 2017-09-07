@@ -1,0 +1,63 @@
+[  
+   {  
+      "posX":1995.83,
+      "posY":2,
+      "diam":5,
+      "nombre":"Descubrimieto del Primer Exoplaneta "
+   },
+   {  
+      "posX":2015.58,
+      "posY":2,
+      "diam":5,
+      "nombre":"Descubrimiento del planeta más similar a la tierra"
+   },
+   {  
+      "posX":2006.9,
+      "posY":2,
+      "diam":5,
+      "nombre":"Lanzamiento Satelite COROT"
+   },
+   {  
+      "posX":2017.16,
+      "posY":2,
+      "diam":5,
+      "nombre":"Anuncio descubrimiento sistema TRAPPIS"
+   },
+   {  
+      "posX":1994.5,
+      "posY":2,
+      "diam":5,
+      "nombre":"Lanzamiento telescopio Hubble"
+   },
+   {  
+      "posX":1994.8,
+      "posY":2,
+      "diam":5,
+      "nombre":"Reparación de telescopio Hubble"
+   },
+   {  
+      "posX":1996,
+      "posY":2,
+      "diam":5,
+      "nombre":"Descubrimiento Campo Profundo de Hubble "
+   },
+   {  
+      "posX":2015.50,
+      "posY":2,
+      "diam":5,
+      "nombre":"Anuncio creación de GMT"
+   },
+   {  
+      "posX":2009.25,
+      "posY":2,
+      "diam":5,
+      "nombre":"Lanzamiento telescopio Kepler"
+   },
+   {  
+      "posX":2017,
+      "posY":1,
+      "diam":5,
+      "nombre":"Lanzamiento primer nanosatélite chileno"
+   }
+
+]

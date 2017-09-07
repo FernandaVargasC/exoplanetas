@@ -1157,17 +1157,17 @@
       }
     };
   }
-  d3.mouse = function(container) {
-    return d3_mousePoint(container, d3_eventSource());
+  d3.mouse = function(parte2) {
+    return d3_mousePoint(parte2, d3_eventSource());
   };
   var d3_mouse_bug44083 = this.navigator && /WebKit/.test(this.navigator.userAgent) ? -1 : 0;
-  function d3_mousePoint(container, e) {
+  function d3_mousePoint(parte2, e) {
     if (e.changedTouches) e = e.changedTouches[0];
-    var svg = container.ownerSVGElement || container;
+    var svg = parte2.ownerSVGElement || parte2;
     if (svg.createSVGPoint) {
       var point = svg.createSVGPoint();
       if (d3_mouse_bug44083 < 0) {
-        var window = d3_window(container);
+        var window = d3_window(parte2);
         if (window.scrollX || window.scrollY) {
           svg = d3.select("body").append("svg").style({
             position: "absolute",
@@ -1184,17 +1184,17 @@
       }
       if (d3_mouse_bug44083) point.x = e.pageX, point.y = e.pageY; else point.x = e.clientX, 
       point.y = e.clientY;
-      point = point.matrixTransform(container.getScreenCTM().inverse());
+      point = point.matrixTransform(parte2.getScreenCTM().inverse());
       return [ point.x, point.y ];
     }
-    var rect = container.getBoundingClientRect();
-    return [ e.clientX - rect.left - container.clientLeft, e.clientY - rect.top - container.clientTop ];
+    var rect = parte2.getBoundingClientRect();
+    return [ e.clientX - rect.left - parte2.clientLeft, e.clientY - rect.top - parte2.clientTop ];
   }
-  d3.touch = function(container, touches, identifier) {
+  d3.touch = function(parte2, touches, identifier) {
     if (arguments.length < 3) identifier = touches, touches = d3_eventSource().changedTouches;
     if (touches) for (var i = 0, n = touches.length, touch; i < n; ++i) {
       if ((touch = touches[i]).identifier === identifier) {
-        return d3_mousePoint(container, touch);
+        return d3_mousePoint(parte2, touch);
       }
     }
   };
@@ -1250,10 +1250,10 @@
   function d3_behavior_dragTouchId() {
     return d3.event.changedTouches[0].identifier;
   }
-  d3.touches = function(container, touches) {
+  d3.touches = function(parte2, touches) {
     if (arguments.length < 2) touches = d3_eventSource().touches;
     return touches ? d3_array(touches).map(function(touch) {
-      var point = d3_mousePoint(container, touch);
+      var point = d3_mousePoint(parte2, touch);
       point.identifier = touch.identifier;
       return point;
     }) : [];
