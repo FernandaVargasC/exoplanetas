@@ -7,14 +7,21 @@ html, body {
     font-family: "Gotham Black";
     font-style: normal;
     font-weight: normal;
-    src: local("?"), url("/fonts/gothamblack.woff") format("woff"), url("/fonts/gothamblackregular.ttf") format("truetype");
+    src: url("/fonts/gothamblack.woff") format("woff"), url("/fonts/gothamblackregular.ttf") format("truetype");
 } 
 
 @font-face {
     font-family: "Gotham Light";
     font-style: normal;
     font-weight: normal;
-    src: local("?"), url("/fonts/gothamlight.ttf") format("truetype");
+    src: url("/fonts/gothamlight.ttf") format("truetype");
+}  
+
+@font-face {
+    font-family: "Gotham Medium";
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/GothamMedium.ttf") format("truetype");
 }  
 
 .ejes path{
@@ -29,13 +36,16 @@ html, body {
     shape-rendering: crispEdges;
   }
 .ejes text {
-    font-family: sans-serif;
-    font-size: 10px;
-    stroke:#00545C;
-    stroke-width: 0.5px;
-
+    font-family: "Gotham Medium";
+    font-size: 9px;
+    fill: #999CA1;
 
 }
+
+svg {
+	margin:0 auto;
+}
+  
 /*.parte2 {  
     background: #000814;
     width: 100% ;
@@ -129,8 +139,10 @@ h2 {
 }
 
 p {
+  font-family: "Gotham Medium";
   margin-bottom: 2em;
   color: #00545C;
+  font-size: 10.2px;
 }
 
 h4 {
@@ -143,16 +155,54 @@ h4 {
 }
 
 h5 { 
+font-family: "Gotham Medium";
+float:left;
+font-size:10px;
+color: #999ca1;
+margin-left:15px; 
+margin-top:10px;
+margin-bottom: 10px;
+}
+
+h7 {
+  font-family: "Gotham Light";
+  font-size:10px;
+  color: #000814;
+  margin-top: 1px;
+}
+
+h8 {
+font-size: 10px;
+fill: red;
+}
+
+#infotitulo:hover #colortexto { 
+  color: #0f1621;
+}
+
+p1 {
 font-family: "Gotham Light";
 float:left;
-font-size:11px;
-color: #00840B;
-margin-left:20px; 
+font-size:10px;
+color: #0f1621;
+margin-left:15px; 
 margin-top:10px;
-margin-bottom: 8px;
+margin-bottom: 8px; 
+text-align: left;
+}
+
+p2 {
+font-family: "Gotham Medium";
+float:left;
+font-size:11px;
+color: #00545c;
+margin-left:15px; 
+margin-top:10px;
+margin-bottom: 8px; 
 }
 
 h6 {
+  font-family: "Gotham Black";
   float:left;
   font-size:11px;
   color: #999CA1;
@@ -170,14 +220,6 @@ h3 {
   padding: 2px;
 }
 
-h7 {
-  font-family: "Gotham Light";
-  font-size:12px;
-  color: #000814;
-  margin-top: 1px;
-}
-
-
 hr {
   color: #00545c;
   background-color: #00545c;
@@ -186,10 +228,15 @@ hr {
   margin-bottom: 1px;
 }
 
-#fotoplaneta {
-  padding-top: 20px;
+#medidaimagen{
+	padding-top: 15px;
+	width: 200px;
 }
 
+#medidatooltip {
+	width: 200px;
+	height: auto;
+}
 /*BOTONES PARTE 1 */
 
 .row{

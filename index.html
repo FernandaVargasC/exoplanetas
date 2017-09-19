@@ -4,26 +4,35 @@
     <meta charset="UTF-8"/>
     <title>EXOPLANETAS</title>
 
+    <!-- CSS -->
+
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- D3 -->
 
     <script type="text/javascript" src="js/d3.min.js"></script>
     <script type="text/javascript" src="js/d3.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/script2.js"></script>
+    <!-- <script type="text/javascript" src="js/script2.js"></script> -->
+
+    <!-- JQUERY -->
+    <script type="text/javascript" src="js/jquery/jquery-3.2.1.min.js"></script> 
+    <script type="text/javascript" src="js/jquery/jquery-3.2.1.js"></script> 
+    <script type="text/javascript" src="js/jquery/jqueryscript.js"></script>
      
 </head>
 
 
-<body>
-    <div class="parte1">
+<body onload="cargar_pagina">
+
+ <!-- TÍTULO -->
+ <div class="parte1">
     <h1> EXOPLANETAS </h1>
         <p> Planetas fuera del sistema solar descubiertos desde 1995 </p>
 
-        <!--BOTONES PARTE1-->
-           <div class='row'>
-  <div class='cell'>
-  </div>
+ <!--BOTONES PARTE1-->
+  <div class='row'>
   <div class='cell'>
  
   <div class="switch">
@@ -35,13 +44,16 @@
     </div>
    </div>
    </div>
-
+</div>
  
- <!--FIN BOTONES PARTE1-->
+ <!--CAJA 1 PARTE COMPARACIÓN EXOPLANETA-ESTRELLA / TIERRA-SOL -->
 
-    <div id="caja1"></div>
+ <div class="caja1"></div>
+ 
 
-    <div class="parte2">
+ <!--BOTONES PARTE2-->
+
+ <div class="parte2">
 
       <div class="botonesparte2">
 
@@ -73,24 +85,42 @@
          <option value="5">Terrestrial</option>
         </select>
         </div>
+      </div>
 
-        <div id="caja"></div>
 
-    </div>
+ <!--CAJA 2 GRÁFICO EXOPLANETA -->
+    
+    <div id="caja2"></div>
 
-    <div class="parte3">
+</div>
+
+ <!--LEYENDA PARTE HITOS -->
+
+ <div class="parte3">
     <h4> Hitos exoplanetas </h4>
     <h5> Hitos astronómicos </h5>
-    <div id="caja3"></div>
-    </div>
 
-    <div class="info">
-    <h5> aquí va info proyecto</h5>
-    </div>
+ <!--CAJA 3 - HITOS -->
+ <div id="caja3"></div>
+    
+ </div>
 
 
-  
-</div>
+ <!-- PARTE INFORMACIÓN SOBRE PROYECTO -->
+<div id="info"> 
+
+ <div id="infotitulo" onclick="sobreproyecto()"> 
+ <h5 id="colortexto" onclick="sobreproyecto()"> Sobre el proyecto</h5>
+ </div>
+
+ <div id="infoescondida">
+    <p1>En 1995 un suceso histórico cambió nuestra concepción del Universo: el primer planeta orbitando una estrella distante, diferente de nuestro Sol, fue identificado. A día de hoy más de 1800 planetas orbitando estrellas lejanas han sido descubiertos. El estudio de estos planetas nos ayuda a entender cómo nació nuestro propio Sistema Solar, y es el primer paso para responder a una pregunta fundamental: ¿estamos solos en el Universo? - Héctor Cánovas, Astrónomo </br></br>
+    De niño, mi imaginación se alimentaba con las ilustraciones de las enciclopedias que mi papa tenía en casa. Imágenes de planetas gigantes, galaxias espirales y otros fenómenos resuenan en mí hasta hoy. Este proyecto de visualización de  información es un puente para hablar no solo de la relación entre ciencia y arte, sino que además para reunir mi tiempo pasado con el de hoy, como las dos puntas de una misma cuerda. - Ricardo Vega, Artista/Diseñador </br></br>
+    Proyecto desarrollado en el contexto del Proyecto AATS, Anilla Cultural, Santiago, Chile, 2014   </p1></br>
+    <a href="http://phl.upr.edu/"><p2>Datos: Planetary Habitability Lab</p2></a>
+ </div>
+ </div>
+
 
 </body>
 </html>

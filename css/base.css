@@ -22,23 +22,29 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
   green          : #738A05; */
 
 body {
-  font-family: "Exo 2", "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: 300;
-  font-size: 1.2em;
   line-height: 1.2em;
   background: #101421;
 }
 
 .parte1 {
-  width: 1200px;
-  height: 240px;
+  width: 1150px;
+  height: 80px;
   margin: 0 auto;
   background:#101421;
   text-align: left;
 } 
 
+.caja1 {
+  width: 1150px;
+  height: 150px;
+  margin: 0 auto;
+  background: #0d202c;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .parte2 {
-  width: 1200px;
+  width: 1150px;
   height: 360px;
   margin: 0 auto;
   background:#101421;
@@ -53,15 +59,47 @@ body {
   text-align: left;
 }
 
-.info {
-	position: absolute;
-	width: 600px;
-	height: 41px; 
-	text-align: center;
-	top:3%;
-	left: 50%;
-	background: #00C8C8;
+#info{
+  position: absolute;
+  width: 250px;
+  height: 30px; 
+  text-align: center;
+  top:3%;
+  left: 72%;
 }
+
+/*#info:hover #infoescondida { --> cuando se pasa sobre algo se puede encender otra cosa
+  visibility: visible;
+}*/ 
+
+#infotitulo {
+  position: relative;
+  width: 250px;
+  height: 30px; 
+  text-align: center;
+  background: #0d202c;
+  padding-right: 15px;
+
+}
+
+#infotitulo:hover{ 
+   background-color: #00c8c8;
+}
+
+#infoescondida {
+	position: relative;
+	width: 250px;
+	height: 370px; 
+	text-align: center;
+	background: #999ca1;
+  padding-right: 15px;
+  visibility: hidden;
+  stroke: #00545c;
+  stroke-width:20px;
+}
+
+
+
 
 strong {
   font-weight: 600;

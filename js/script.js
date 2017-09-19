@@ -5,28 +5,36 @@
 //ver d3 toltip
 //https://github.com/caged/d3-tip
 
+function cargar_pagina (){}
+
+// INFORMACIÓN SOBRE PROYECTO //
+function sobreproyecto() {
+	var mostrar= document.getElementById("infoescondida");
+	if (mostrar.style.visibility === 'hidden') {
+		mostrar.style.visibility = 'visible';
+	} else {
+		mostrar.style.visibility = 'hidden';
+	}	
+}
+
+
+
 var dat;
  //nuevas varibles para area dbujo
-var w = 1200, h = 340,  borde = 25;
-var anchoGrafico = w-borde*2;
+var w = 1150, h = 340,  borde = 25;
+var anchoGrafico = w-borde*0.1;
 var altoGrafico = h-borde*2;
 
-var a = 1200, l = 180, c = 44; 
+var  c = 44; 
  
  
 d3.json("d/archivodatos.json", function(error, datos) {
               if (error) return console.warn(error);
               dat = datos;
 
-
-var sist = d3.select('#caja1')
-			.append('svg')
-			.attr('width', a)
-			.attr('height', l)
-			.style("background", "#102430")
  
 //crea un contenedor para el grafico, crea dentro un svg
-var chart = d3.select('#caja')
+var chart = d3.select('#caja2')
 			.append('svg')
 			.attr('width', w)
 			.attr('height', h)
@@ -41,9 +49,10 @@ var chart = d3.select('#caja')
 			
 //4 - Dominio de datos para rango x (posicion array 1) 
 var xScale = d3.scale.linear()
-				.domain([	1994, d3.max(datos, function(d) {return d.posX; })	
-						+1])
-				.range(	[borde*2 , anchoGrafico+borde]	);
+				.domain([	1.994, d3.max(datos, function(d) {return d.posX; })	
+						+0.002])
+				.range(	[ borde , anchoGrafico+borde]);
+
 
 //4 - Dominio de datos para rango y (posicion array 3) 
 var yScale = d3.scale.linear()
@@ -57,6 +66,7 @@ var ejeX = d3.svg.axis()
 			.orient("bottom")
 			.ticks(24)
 			.tickSize(-290)
+
 			
 			;
 //5- Eje para Y
@@ -66,6 +76,8 @@ var ejeY = d3.svg.axis()
 			.innerTickSize(5)
 			.outerTickSize(-1150)
 			;
+
+          
 
 // TOOLTIP
 var tooltip = d3.select("body")//body
@@ -107,22 +119,13 @@ es = chart.append("g")
 				
 
 				//TOOLTIP  - - - - - - - - - - - - - - - - - - - - 
-				.on("mouseover", function(){//cuando el mouse esta arriba del circulo, hace que el tooltip sea visible
-					return tooltip.style("visibility", "visible");
+			    .on("click", function(d){//mouse se mueve c los parametros x e y de la pagina. Incluye tb los datos a mostrar. 
+					return	tooltip.style("visibility","visible")
+					                .style("top", (event.pageY-230)+"px") // *** VER LA MANERA DE QUE event.pageY SE PUEDA SUMAR CON LA ALTURA DEL TOOLTIP/2 (PARA QUE ASÍ EL TOOLTIP QUEDE CENTRADO CON EL MOUSE)
+									.style("left",(event.pageX+20)+"px")
+							        .html( "<div id='medidatooltip'>" + "<h3>" + d.nombre + "</h3>" + "<hr>" + "</br><h7>" + "Masa del planeta: " + d.masa + "<br/>" + "Radio del planeta: " + d.radio + "<br/>" + "Periodo orbital: " + d.orbita + "<br/>" + "Distancia a estrella: " + d.disestrella + "</h7><br/>" + "<img id='medidaimagen'src= '" + d.image + "'' ></div>");
 				})
-
-				.on("mousemove", function(d){//mouse se mueve c los parametros x e y de la pagina. Incluye tb los datos a mostrar. 
-					return	tooltip.style("top", (event.pageY-200)+"px")
-									.style("left",(event.pageX+10)+"px")
-							        .html( "<h3>" + d.nombre + "</h3>" + "<hr>" + "</br><h7>" + "Masa del planeta: " + d.masa + "<br/>" + "Radio del planeta: " + d.radio + "<br/>" + "Periodo orbital: " + d.orbita + "<br/>" + "Distancia a estrella: " + d.disestrella + "</h7><br/>" + "<div id='fotoplaneta'><img src= '" + d.image + "'' ></div>");
-							        
-				})
-				//.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
-				.on("mouseout", function(){//
-					return tooltip.style("visibility", "hidden");
-				})
-				;
-
+				; //mouseover
 
 //5 llama ejes X 
 //ver css clase eje que pinta el eje
@@ -139,18 +142,17 @@ es = chart.append("g")
 			.attr("class", "ejes")
 			.attr("transform", "translate("+borde+",0)")
 		    .call(ejeY)
-		    ;  				
-
+		    ;  	
+	
 });//cierre json call
 
 
 //4 borde para ver ancho y largo del grafico
-d3.select('svg').append("rect")
-			.attr('x', borde)
-			.attr('y', borde)
-			.attr('width', anchoGrafico)
-			.attr('height', altoGrafico)
-			.style('stroke', '#00545C')
-			.style("fill", "transparent")
-			.style('opacity', .5)	
- 			;
+//d3.select('svg').append("rect")
+			//.attr('x', borde)
+			//.attr('y', borde+50)
+			//.attr('width', anchoGrafico)
+			//.attr('height', altoGrafico)
+			//.style('fill', '#00545C')
+			//.style('opacity', .5)	
+ 			//;
