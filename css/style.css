@@ -35,17 +35,24 @@ html, body {
     stroke: #00545C;
     shape-rendering: crispEdges;
   }
-.ejes text {
-    font-family: "Gotham Medium";
-    font-size: 9px;
-    fill: #999CA1;
+  
+#ejex text {
+    fill: #101421;
+    font-family: "Gotham Black";
+    font-size: 10px;
+}
 
+#ejey text {
+  fill: #00545C;
+  font-family: "Gotham Medium";
+  font-size: 9px;
 }
 
 svg {
 	margin:0 auto;
+	padding-bottom: 10px;
 }
-  
+
 /*.parte2 {  
     background: #000814;
     width: 100% ;

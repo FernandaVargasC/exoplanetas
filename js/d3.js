@@ -7565,7 +7565,7 @@
           return format(prefix.scale(d)) + prefix.symbol;
         };
       }
-      if (!match[7]) match[7] = "." + d3_scale_linearFormatPrecision(match[8], range);
+      if (!match[7]) match[7] = "," + d3_scale_linearFormatPrecision(match[8], range);
       format = match.join("");
     } else {
       format = ",." + d3_scale_linearPrecision(range[2]) + "f";

@@ -52,9 +52,10 @@ body {
 
 
 .parte3 {
-  width: 1200px;
+  width: 1150px;
   height: 85px;
   margin: 0 auto;
+  margin-top: 20px;
   background:#101421;
   text-align: left;
 }

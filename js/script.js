@@ -7,6 +7,20 @@
 
 function cargar_pagina (){}
 
+function format()
+{
+var num = input.value.replace(/\./g,'');
+if(!isNaN(num)){
+num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
+num = num.split('').reverse().join('').replace(/^[\.]/,'');
+input.value = num;
+}
+ 
+else{ alert('Solo se permiten numeros');
+input.value = input.value.replace(/[^\d\.]*/g,'');
+}
+}
+
 // INFORMACIÓN SOBRE PROYECTO //
 function sobreproyecto() {
 	var mostrar= document.getElementById("infoescondida");
@@ -16,8 +30,6 @@ function sobreproyecto() {
 		mostrar.style.visibility = 'hidden';
 	}	
 }
-
-
 
 var dat;
  //nuevas varibles para area dbujo
@@ -49,8 +61,8 @@ var chart = d3.select('#caja2')
 			
 //4 - Dominio de datos para rango x (posicion array 1) 
 var xScale = d3.scale.linear()
-				.domain([	1.994, d3.max(datos, function(d) {return d.posX; })	
-						+0.002])
+				.domain([	1994, d3.max(datos, function(d) {return d.posX; })	
+						+2])
 				.range(	[ borde , anchoGrafico+borde]);
 
 
@@ -66,9 +78,8 @@ var ejeX = d3.svg.axis()
 			.orient("bottom")
 			.ticks(24)
 			.tickSize(-290)
-
-			
 			;
+
 //5- Eje para Y
 var ejeY = d3.svg.axis()
 			.scale(yScale)
@@ -76,7 +87,6 @@ var ejeY = d3.svg.axis()
 			.innerTickSize(5)
 			.outerTickSize(-1150)
 			;
-
           
 
 // TOOLTIP
@@ -90,7 +100,51 @@ var tooltip = d3.select("body")//body
 	.style("padding", "10px")
 ;
 
- 
+d3.select('svg').append("rect")
+			   .attr('x', borde)
+			   .attr('y', borde+290)
+			   .attr('width', anchoGrafico)
+			   .attr('height', 20)
+			   .style('fill', '#00545C')
+			   .style('opacity', 1)	
+ 			;	
+
+//Create y axi
+d3.select('svg').append("text")
+		        .attr("y", 18)
+		        .attr("x", borde+85)
+		        .style("text-anchor", "end")
+		        .style("fill", "#00545C" )
+		        .style("font-family","Gotham Light")
+		        .text("Radio exoplaneta");
+
+d3.select('svg').append("text")
+		        .attr("y", 350)
+		        .attr("x", 1148)
+		        .style("text-anchor", "end")
+		        .style("fill", "#00545C" )
+		        .style("font-family","Gotham Light")
+		        .text("Año descubrimiento");
+
+//5 llama ejes X 
+//ver css clase eje que pinta el eje
+
+		chart.append("g")
+			.attr("class", "ejes")
+			.attr("id","ejex")
+			.attr("transform", "translate(0,"+(h-borde)+")")
+		    .call(ejeX)
+		    ;  		
+		    
+
+//5 llama ejes Y 
+//ver css clase eje que pinta el eje
+		chart.append("g")
+			.attr("class", "ejes")
+			.attr("id", "ejey")
+			.attr("transform", "translate("+borde+",0)")
+		    .call(ejeY)
+		    ;  
 
 //crea una especie de grupo donde de elementos basados en los datos
 var 
@@ -115,7 +169,7 @@ es = chart.append("g")
 				})
 
 				.style("fill", "#00C8C8")
-				.style("opacity", .6)
+				.style("opacity", 1)
 				
 
 				//TOOLTIP  - - - - - - - - - - - - - - - - - - - - 
@@ -127,32 +181,41 @@ es = chart.append("g")
 				})
 				; //mouseover
 
-//5 llama ejes X 
-//ver css clase eje que pinta el eje
 
-		chart.append("g")
-			.attr("class", "ejes")
-			.attr("transform", "translate(0,"+(h-borde)+")")
-		    .call(ejeX)
-		    ;  		
 
-//5 llama ejes Y 
-//ver css clase eje que pinta el eje
-		chart.append("g")
-			.attr("class", "ejes")
-			.attr("transform", "translate("+borde+",0)")
-		    .call(ejeY)
-		    ;  	
+d3.select('svg').append("rect")
+			   .attr('x', borde)
+			   .attr('y', borde+290)
+			   .attr('width', 45)
+			   .attr('height', 20)
+			   .style('fill', '#00545C')
+			   .style('opacity', 1)	
+ 			;
+
+d3.select('svg').append("rect")
+			   .attr('x', borde+18)
+			   .attr('y', borde+297.5)
+			   .attr('width', 22)
+			   .attr('height', 5)
+			   .style('fill', '#101421')
+			   .style('opacity', 1)	
+ 			;
+
+d3.select('svg').append("rect")
+			   .attr('x', 2)
+			   .attr('y', borde+280)
+			   .attr('width', 22.5)
+			   .attr('height', 20)
+			   .style('fill', '#101421')
+			   .style('opacity', 1)	
+ 			;
+
+d3.select('svg').append("path")
+                .attr('d', 'M 32,325 45,319 45,331 Z')
+                .style('fill', 'white')
+			    .style('fill', '#101421');
+
 	
+
 });//cierre json call
 
-
-//4 borde para ver ancho y largo del grafico
-//d3.select('svg').append("rect")
-			//.attr('x', borde)
-			//.attr('y', borde+50)
-			//.attr('width', anchoGrafico)
-			//.attr('height', altoGrafico)
-			//.style('fill', '#00545C')
-			//.style('opacity', .5)	
- 			//;
